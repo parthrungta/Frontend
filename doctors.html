@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Doctors | MediCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #0056b3; --bg: #f8f9fa; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        nav { background: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        a { text-decoration: none; color: #333; }
+
+        /* Search Bar Styles */
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 45px; /* Space for icon */
+            border: 1px solid #ccc;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .doc-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; }
+        .doc-card:hover { transform: translateY(-5px); }
+        .doc-img { height: 250px; background: #ddd; background-size: cover; background-position: center; }
+        .doc-info { padding: 20px; }
+        .btn { background: var(--primary); color: white; padding: 10px; text-align: center; display: block; border-radius: 5px; margin-top: 15px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2 style="color:#0056b3;"><i class="fas fa-heartbeat"></i> MediCare</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctors.html" style="color: #0056b3; font-weight: bold;">Doctors</a></li>
+            <li><a href="availability.html">Check Availability</a></li>
+            <li><a href="appointments.html">My Appointments</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center;">Find a Specialist</h1>
+        
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="doctorSearch" class="search-input" placeholder="Search by Name, Department (e.g. Cardio)..." onkeyup="filterDoctors()">
+        </div>
+
+        <div class="doc-grid" id="doctorsList">
+            <div class="doc-card">
+                <div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500');"></div>
+                <div class="doc-info">
+                    <h3>Dr. Rajesh Gupta</h3>
+                    <p style="color: #00a8cc;">Cardiologist (MBBS, MD)</p>
+                    <p><small>15 Years Experience | <i class="fas fa-star" style="color:gold;"></i> 4.9</small></p>
+                    <a href="appointments.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500');"></div>
+                <div class="doc-info">
+                    <h3>Dr. Priya Desai</h3>
+                    <p style="color: #00a8cc;">Pediatrician (MBBS, DCH)</p>
+                    <p><small>8 Years Experience | <i class="fas fa-star" style="color:gold;"></i> 4.8</small></p>
+                    <a href="appointments.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500');"></div>
+                <div class="doc-info">
+                    <h3>Dr. Amit Verma</h3>
+                    <p style="color: #00a8cc;">Neurologist (MD, DM)</p>
+                    <p><small>12 Years Experience | <i class="fas fa-star" style="color:gold;"></i> 5.0</small></p>
+                    <a href="appointments.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=500');"></div>
+                <div class="doc-info">
+                    <h3>Dr. Vikram Singh</h3>
+                    <p style="color: #00a8cc;">Orthopedic Surgeon (MS)</p>
+                    <p><small>20 Years Experience | <i class="fas fa-star" style="color:gold;"></i> 4.7</small></p>
+                    <a href="appointments.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1559839734-2b71ea860485?w=500');"></div>
+                <div class="doc-info">
+                    <h3>Dr. Neha Kapoor</h3>
+                    <p style="color: #00a8cc;">Gynecologist (MBBS, DGO)</p>
+                    <p><small>10 Years Experience | <i class="fas fa-star" style="color:gold;"></i> 4.9</small></p>
+                    <a href="appointments.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+            <div class="doc-card">
+                <div class="doc-img" style="background-image: url('https://images.unsplash.com/photo-1612531386530-97286d74c2ea?w=500');"></div>
+                <div class="doc-info">
+                    <h3>Dr. Suresh Menon</h3>
+                    <p style="color: #00a8cc;">General Physician (MD)</p>
+                    <p><small>25 Years Experience | <i class="fas fa-star" style="color:gold;"></i> 4.6</small></p>
+                    <a href="appointments.html" class="btn">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+        
+        <p id="noResults" style="text-align: center; display: none; margin-top: 20px; color: #666;">No specialists found matching your search.</p>
+    </div>
+
+    <script>
+        function filterDoctors() {
+            // Get value from input
+            const input = document.getElementById('doctorSearch');
+            const filter = input.value.toUpperCase();
+            
+            // Get grid and cards
+            const container = document.getElementById('doctorsList');
+            const cards = container.getElementsByClassName('doc-card');
+            let visibleCount = 0;
+
+            // Loop through all cards
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].getElementsByTagName("h3")[0];
+                const spec = cards[i].getElementsByTagName("p")[0];
+                
+                if (title || spec) {
+                    const txtValue = title.textContent || title.innerText;
+                    const specValue = spec.textContent || spec.innerText;
+                    
+                    // Check if Name OR Specialty matches
+                    if (txtValue.toUpperCase().indexOf(filter) > -1 || specValue.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                        visibleCount++;
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }       
+            }
+            
+            // Show "No Results" message if nothing found
+            const noResultsMsg = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResultsMsg.style.display = "block";
+            } else {
+                noResultsMsg.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
